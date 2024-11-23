@@ -342,7 +342,7 @@ static void print_banner(int banner_type)
     printf("| Minix 3.4.0rc6 - SO - UNIFESP 2s2024 |\n");
     printf("|         Projeto 1 - Equipe 4         |\n");
     printf("========================================\n");
-  } else{
+  } else { 
     printf("\n=================================================\n");
     printf("|      ATE A PROXIMA - SO - UNIFESP 2s2024      |\n");
     printf("|             Projeto 1 - Equipe 4              |\n");
