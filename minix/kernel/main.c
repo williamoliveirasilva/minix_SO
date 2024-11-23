@@ -330,6 +330,25 @@ void kmain(kinfo_t *local_cbi)
 /*===========================================================================*
  *				announce				     *
  *===========================================================================*/
+
+static void print_banner(int banner_type)
+{
+  //1 Announce banner
+  //2 - SHutdown banner
+
+  if(banner_type == 1)
+  {
+    printf("\n========================================\n");
+    printf("| Minix 3.4.0rc6 - SO - UNIFESP 2s2024 |\n");
+    printf("|         Projeto 1 - Equipe 4         |\n");
+    printf("========================================\n");
+  } else{
+    printf("\n=================================================\n");
+    printf("|      ATE A PROXIMA - SO - UNIFESP 2s2024      |\n");
+    printf("|             Projeto 1 - Equipe 4              |\n");
+    printf("=================================================\n");
+  }
+}
 static void announce(void)
 {
   /* Display the MINIX startup banner. */
@@ -339,9 +358,10 @@ static void announce(void)
 #endif
 #ifdef _VCS_REVISION
 	"(" _VCS_REVISION ")\n"
-#endif
-      "Copyright 2016, Vrije Universiteit, Amsterdam, The Netherlands\n",
+#endif,
       OS_RELEASE);
+
+  print_banner(1);
   printf("MINIX is open source software, see http://www.minix3.org\n");
 }
 
@@ -357,7 +377,7 @@ void prepare_shutdown(const int how)
    * do shutdown work.  Set a watchog timer to call shutdown(). The timer 
    * argument passes the shutdown status. 
    */
-  printf("MINIX will now be shut down ...\n");
+  print_banner(2);
   set_kernel_timer(&shutdown_timer, get_monotonic() + system_hz,
       minix_shutdown, how);
 }
@@ -519,4 +539,3 @@ int is_fpu(void)
 {
         return get_cpulocal_var(fpu_presence);
 }
-
