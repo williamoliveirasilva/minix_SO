@@ -343,6 +343,7 @@ static void print_banner(int banner_type)
     printf("|         Projeto 1 - Equipe 4         |\n");
     printf("========================================\n");
   } else{
+    printf("\nMINIX will now be shut down ...\n");
     printf("\n=================================================\n");
     printf("|      ATE A PROXIMA - SO - UNIFESP 2s2024      |\n");
     printf("|             Projeto 1 - Equipe 4              |\n");
@@ -358,8 +359,9 @@ static void announce(void)
 #endif
 #ifdef _VCS_REVISION
 	"(" _VCS_REVISION ")\n"
-#endif,
-      OS_RELEASE);
+#endif
+    "Copyright 2016, Vrije Universiteit, Amsterdam, The Netherlands\n",
+    OS_RELEASE);
 
   print_banner(1);
   printf("MINIX is open source software, see http://www.minix3.org\n");
